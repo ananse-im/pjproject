@@ -1343,7 +1343,7 @@ static void on_allocate_success(pj_turn_session *sess,
 				    "RELAY-ADDRESS attribute"));
 	return;
     }
-    if (raddr_attr && raddr_attr->sockaddr.addr.sa_family != sess->af) {
+    if (raddr_attr && raddr_attr->sockaddr.addr.sa_family != pj_AF_INET()) {
 	on_session_fail(sess, method, PJNATH_EINSTUNMSG,
 			pj_cstr(&s, "Error: RELAY-ADDRESS with non IPv4"
 				    " address family is not supported "
